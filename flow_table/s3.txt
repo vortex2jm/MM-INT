@@ -1,0 +1,27 @@
+table_add addIntInfo add_int_info 0x2020 => 3 1
+
+set_crc16_parameters calc 0x0039 0x0 0x0 false false
+mirroring_add 1 1
+mirroring_add 2 2
+mirroring_add 3 3
+
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.1.2/32 => 2
+table_add ipv4_lpm ipv4_forward 10.0.1.3/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.1.4/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.1.5/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.1.6/32 => 2
+table_add ipv4_lpm ipv4_forward 10.0.1.7/32 => 1
+table_add ipv4_lpm ipv4_forward 10.0.1.8/32 => 1
+
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.1/32 => 0
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.5/32 => 1
+
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.2/32 => 0
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.6/32 => 1
+
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.3/32 => 0
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.7/32 => 1
+
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.4/32 => 0
+table_add ip_sender_match_table ip_sender_change_priority 10.0.1.8/32 => 1

@@ -1,0 +1,5091 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 32, false],
+        ["tmp_0", 32, false],
+        ["tmp_1", 32, false],
+        ["tmp_2", 112, false],
+        ["nresult_0", 16, false],
+        ["tmp_3", 32, false],
+        ["tmp_4", 32, false],
+        ["tmp_5", 32, false],
+        ["tmp_6", 32, false],
+        ["tmp_7", 32, false],
+        ["tmp_8", 32, false],
+        ["tmp_9", 32, false],
+        ["tmp_10", 32, false],
+        ["qdepth_value_0", 32, false],
+        ["qdepth_value_1", 32, false],
+        ["qdepth_value_2", 32, false],
+        ["qdepth_value_3", 32, false],
+        ["qdepth_value_4", 32, false],
+        ["qdepth_value_5", 32, false],
+        ["qdepth_value_6", 32, false],
+        ["qdepth_value_7", 32, false],
+        ["metadata._routeId0", 112, false],
+        ["metadata._etherType1", 16, false],
+        ["metadata._apply_sr2", 1, false],
+        ["metadata._apply_decap3", 1, false],
+        ["metadata._port4", 9, false],
+        ["metadata._f_port5", 9, false],
+        ["metadata._count6", 9, false],
+        ["metadata._n_bits7", 8, false],
+        ["metadata._egress_int8", 9, false],
+        ["metadata._int_info_remaining9", 8, false],
+        ["metadata._path_info_remaining10", 8, false],
+        ["metadata._mymeta_resubmit_reason12", 3, false],
+        ["metadata._mymeta_f113", 9, false],
+        ["_padding_0", 6, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["qid", 5, false],
+        ["_padding", 6, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "srcRoute_t",
+      "id" : 3,
+      "fields" : [
+        ["routeId", 112, false]
+      ]
+    },
+    {
+      "name" : "intoption_t",
+      "id" : 4,
+      "fields" : [
+        ["ver", 4, false],
+        ["d", 1, false],
+        ["e", 1, false],
+        ["m", 1, false],
+        ["r", 12, false],
+        ["hop_ml", 5, false],
+        ["remaining_hop_count", 8, false],
+        ["instruction_bitmap", 16, false],
+        ["domain_specific_id", 16, false],
+        ["domain_instruction", 16, false],
+        ["ds_flags", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 5,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "inthdr_t",
+      "id" : 6,
+      "fields" : [
+        ["sw_id", 32, false],
+        ["ingress_port", 32, false],
+        ["egress_port", 32, false],
+        ["replicate_count", 32, false],
+        ["ingress_global_timestamp", 64, false],
+        ["egress_global_timestamp", 64, false],
+        ["enq_timestamp", 32, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 32, false],
+        ["port1_enq_qdepth0", 32, false],
+        ["port1_enq_qdepth1", 32, false],
+        ["port2_enq_qdepth0", 32, false],
+        ["port2_enq_qdepth1", 32, false],
+        ["port3_enq_qdepth0", 32, false],
+        ["port3_enq_qdepth1", 32, false],
+        ["port4_enq_qdepth0", 32, false],
+        ["port4_enq_qdepth1", 32, false],
+        ["priority", 3, false],
+        ["qid", 5, false]
+      ]
+    },
+    {
+      "name" : "last_egress_sampling_timestamp_t",
+      "id" : 7,
+      "fields" : [
+        ["h_last_egress_sampling_timestamp", 48, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "srcRoute",
+      "id" : 3,
+      "header_type" : "srcRoute_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_option",
+      "id" : 4,
+      "header_type" : "intoption_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 5,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[0]",
+      "id" : 6,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[1]",
+      "id" : 7,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[2]",
+      "id" : 8,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[3]",
+      "id" : 9,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[4]",
+      "id" : 10,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[5]",
+      "id" : 11,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[6]",
+      "id" : 12,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[7]",
+      "id" : 13,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[8]",
+      "id" : 14,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[9]",
+      "id" : 15,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[10]",
+      "id" : 16,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[11]",
+      "id" : 17,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[12]",
+      "id" : 18,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[13]",
+      "id" : 19,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[14]",
+      "id" : 20,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[15]",
+      "id" : 21,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[16]",
+      "id" : 22,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[17]",
+      "id" : 23,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[18]",
+      "id" : 24,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "int_info[19]",
+      "id" : 25,
+      "header_type" : "inthdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "userMetadata._m_last_egress_sampling_timestamp11",
+      "id" : 26,
+      "header_type" : "last_egress_sampling_timestamp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [
+    {
+      "name" : "int_info",
+      "id" : 0,
+      "header_type" : "inthdr_t",
+      "size" : 20,
+      "header_ids" : [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    }
+  ],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [
+    {
+      "id" : 1,
+      "name" : "field_list0",
+      "elements" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "metadata._mymeta_resubmit_reason12"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "metadata._mymeta_f113"]
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "name" : "fl",
+      "elements" : []
+    },
+    {
+      "id" : 3,
+      "name" : "fl_0",
+      "elements" : []
+    },
+    {
+      "id" : 4,
+      "name" : "fl_1",
+      "elements" : []
+    }
+  ],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._apply_sr2"]
+                },
+                {
+                  "type" : "hexstr",
+                  "value" : "0x00"
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._egress_int8"]
+                },
+                {
+                  "type" : "hexstr",
+                  "value" : "0x0000"
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x2020",
+              "mask" : null,
+              "next_state" : "get_routeId"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "get_routeId",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._apply_sr2"]
+                },
+                {
+                  "type" : "hexstr",
+                  "value" : "0x01"
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "srcRoute"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._routeId0"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["srcRoute", "routeId"]
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "int_option"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._int_info_remaining9"]
+                },
+                {
+                  "type" : "field",
+                  "value" : ["int_option", "remaining_hop_count"]
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : "parse_int_info"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["int_option", "remaining_hop_count"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_int_info",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "stack",
+                  "value" : "int_info"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "metadata._int_info_remaining9"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata._int_info_remaining9"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "default",
+              "value" : null,
+              "mask" : null,
+              "next_state" : "parse_int_info"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._int_info_remaining9"]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 612,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "srcRoute", "int_option", "int_info[0]", "int_info[1]", "int_info[2]", "int_info[3]", "int_info[4]", "int_info[5]", "int_info[6]", "int_info[7]", "int_info[8]", "int_info[9]", "int_info[10]", "int_info[11]", "int_info[12]", "int_info[13]", "int_info[14]", "int_info[15]", "int_info[16]", "int_info[17]", "int_info[18]", "int_info[19]", "ipv4"],
+      "primitives" : []
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [
+    {
+      "name" : "MyEgress.reg_port1_qdepth_0",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 360,
+        "column" : 28,
+        "source_fragment" : "reg_port1_qdepth_0"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port1_qdepth_1",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 361,
+        "column" : 28,
+        "source_fragment" : "reg_port1_qdepth_1"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port2_qdepth_0",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 363,
+        "column" : 28,
+        "source_fragment" : "reg_port2_qdepth_0"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port2_qdepth_1",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 364,
+        "column" : 28,
+        "source_fragment" : "reg_port2_qdepth_1"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port3_qdepth_0",
+      "id" : 4,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 366,
+        "column" : 28,
+        "source_fragment" : "reg_port3_qdepth_0"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port3_qdepth_1",
+      "id" : 5,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 367,
+        "column" : 28,
+        "source_fragment" : "reg_port3_qdepth_1"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port4_qdepth_0",
+      "id" : 6,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 369,
+        "column" : 28,
+        "source_fragment" : "reg_port4_qdepth_0"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "MyEgress.reg_port4_qdepth_1",
+      "id" : 7,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 370,
+        "column" : 28,
+        "source_fragment" : "reg_port4_qdepth_1"
+      },
+      "size" : 1,
+      "bitwidth" : 32
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "algo" : "crc16_custom",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_2"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 591,
+        "column" : 4,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 213,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 213,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.clone_packet",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._count6"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 25,
+            "source_fragment" : "mirror_session_id"
+          }
+        },
+        {
+          "op" : "clone_ingress_pkt_to_egress",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x2"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 4,
+            "source_fragment" : "clone(CloneType.I2E, mirror_session_id)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.clone_packet",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._count6"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 25,
+            "source_fragment" : "mirror_session_id"
+          }
+        },
+        {
+          "op" : "clone_ingress_pkt_to_egress",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x3"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 4,
+            "source_fragment" : "clone(CloneType.I2E, mirror_session_id)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.clone_packet",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._count6"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 25,
+            "source_fragment" : "mirror_session_id"
+          }
+        },
+        {
+          "op" : "clone_ingress_pkt_to_egress",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 218,
+            "column" : 4,
+            "source_fragment" : "clone(CloneType.I2E, mirror_session_id)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.do_resubmit_reason1",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._mymeta_resubmit_reason12"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 222,
+            "column" : 8,
+            "source_fragment" : "meta.mymeta.resubmit_reason = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._mymeta_f113"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._f_port5"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 223,
+            "column" : 8,
+            "source_fragment" : "meta.mymeta.f1 = meta"
+          }
+        },
+        {
+          "op" : "resubmit",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 224,
+            "column" : 8,
+            "source_fragment" : "resubmit_preserving_field_list((bit<8>)FieldLists.resubmit_fl1)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.srcRoute_nhop",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._routeId0"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x10"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffffffffffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 243,
+            "column" : 7,
+            "source_fragment" : "ndata"
+          }
+        },
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "nresult_0"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000000200000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 239,
+            "column" : 4,
+            "source_fragment" : "hash( ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._port4"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "^",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["scalars", "nresult_0"]
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "^",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["scalars", "metadata._routeId0"]
+                                      },
+                                      "right" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "&",
+                                          "left" : {
+                                            "type" : "expression",
+                                            "value" : {
+                                              "op" : "<<",
+                                              "left" : {
+                                                "type" : "expression",
+                                                "value" : {
+                                                  "op" : "&",
+                                                  "left" : {
+                                                    "type" : "expression",
+                                                    "value" : {
+                                                      "op" : ">>",
+                                                      "left" : {
+                                                        "type" : "field",
+                                                        "value" : ["scalars", "metadata._routeId0"]
+                                                      },
+                                                      "right" : {
+                                                        "type" : "hexstr",
+                                                        "value" : "0x10"
+                                                      }
+                                                    }
+                                                  },
+                                                  "right" : {
+                                                    "type" : "hexstr",
+                                                    "value" : "0xffffffffffffffffffffffffffff"
+                                                  }
+                                                }
+                                              },
+                                              "right" : {
+                                                "type" : "hexstr",
+                                                "value" : "0x10"
+                                              }
+                                            }
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0xffffffffffffffffffffffffffff"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x000000000000000000000000ffff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xffff"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01ff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 248,
+            "column" : 4,
+            "source_fragment" : "meta.port = (bit<9>) nport"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.ipv4_forward",
+      "id" : 9,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 253,
+            "column" : 4,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 255,
+            "column" : 4,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl -1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.ip_sender_change_priority",
+      "id" : 10,
+      "runtime_data" : [
+        {
+          "name" : "new_priority",
+          "bitwidth" : 3
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "priority"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 259,
+            "column" : 4,
+            "source_fragment" : "standard_metadata.priority = new_priority"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore295",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 295,
+            "column" : 14,
+            "source_fragment" : "meta.count = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._n_bits7"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 296,
+            "column" : 14,
+            "source_fragment" : "meta.n_bits = 0"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore302",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._f_port5"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 302,
+            "column" : 16,
+            "source_fragment" : "meta.f_port = meta"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore306",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._n_bits7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._n_bits7"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 306,
+            "column" : 14,
+            "source_fragment" : "meta.n_bits = meta.n_bits + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore313",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._f_port5"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 313,
+            "column" : 16,
+            "source_fragment" : "meta.f_port = meta"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore317",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._n_bits7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._n_bits7"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 317,
+            "column" : 14,
+            "source_fragment" : "meta.n_bits = meta.n_bits + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore310",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._count6"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 310,
+            "column" : 12,
+            "source_fragment" : "meta.count = meta.count + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore324",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._f_port5"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 324,
+            "column" : 16,
+            "source_fragment" : "meta.f_port = meta"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore328",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._n_bits7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._n_bits7"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 328,
+            "column" : 14,
+            "source_fragment" : "meta.n_bits = meta.n_bits + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore321",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._count6"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "metadata._count6"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01ff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 321,
+            "column" : 12,
+            "source_fragment" : "meta.count = meta.count + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore335",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata._mymeta_f113"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 335,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = meta"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "mpolkaintcore289",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "priority"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 289,
+            "column" : 6,
+            "source_fragment" : "standard_metadata.priority = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "NoAction",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port1_qdepth0",
+      "id" : 23,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 438,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port1_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 438,
+            "column" : 4,
+            "source_fragment" : "reg_port1_qdepth_0.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port1_qdepth1",
+      "id" : 24,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 442,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port1_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 442,
+            "column" : 4,
+            "source_fragment" : "reg_port1_qdepth_1.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port2_qdepth0",
+      "id" : 25,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 449,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port2_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 449,
+            "column" : 4,
+            "source_fragment" : "reg_port2_qdepth_0.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port2_qdepth1",
+      "id" : 26,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 453,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port2_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 453,
+            "column" : 4,
+            "source_fragment" : "reg_port2_qdepth_1.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port3_qdepth0",
+      "id" : 27,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 459,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port3_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 459,
+            "column" : 4,
+            "source_fragment" : "reg_port3_qdepth_0.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port3_qdepth1",
+      "id" : 28,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 463,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port3_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 463,
+            "column" : 4,
+            "source_fragment" : "reg_port3_qdepth_1.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port4_qdepth0",
+      "id" : 29,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_9"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 468,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port4_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_9"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 468,
+            "column" : 4,
+            "source_fragment" : "reg_port4_qdepth_0.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.w_register_manipulation_port4_qdepth1",
+      "id" : 30,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "enq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 472,
+            "column" : 32,
+            "source_fragment" : "(enq_qdepth_v) standard_metadata.enq_qdepth"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port4_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 472,
+            "column" : 4,
+            "source_fragment" : "reg_port4_qdepth_1.write(0, (enq_qdepth_v) standard_metadata.enq_qdepth)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.drop",
+      "id" : 31,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 477,
+            "column" : 4,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.add_int_info",
+      "id" : 32,
+      "runtime_data" : [
+        {
+          "name" : "sw_id",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "rep_count",
+          "bitwidth" : 32
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_option", "remaining_hop_count"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["int_option", "remaining_hop_count"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 481,
+            "column" : 4,
+            "source_fragment" : "hdr.int_option.remaining_hop_count = hdr.int_option.remaining_hop_count + 1"
+          }
+        },
+        {
+          "op" : "push",
+          "parameters" : [
+            {
+              "type" : "header_stack",
+              "value" : "int_info"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 482,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info.push_front(1)"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "int_info[0]"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 483,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "sw_id"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 484,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].sw_id = (bit<32>)sw_id"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "ingress_port"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 485,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].ingress_port=(bit<32>)standard_metadata.ingress_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "egress_port"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 486,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].egress_port=(bit<32>)standard_metadata.egress_port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "replicate_count"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "?",
+                  "left" : {
+                    "type" : "hexstr",
+                    "value" : "0x00000000"
+                  },
+                  "right" : {
+                    "type" : "local",
+                    "value" : 1
+                  },
+                  "cond" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["standard_metadata", "egress_port"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "ingress_global_timestamp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 492,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].ingress_global_timestamp=(bit<64>)standard_metadata.ingress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "egress_global_timestamp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 493,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].egress_global_timestamp=(bit<64>)standard_metadata.egress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "enq_timestamp"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "enq_timestamp"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 494,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].enq_timestamp=(bit<32>)standard_metadata.enq_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "deq_timedelta"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "deq_timedelta"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 497,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].deq_timedelta=(bit<32>)standard_metadata.deq_timedelta"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "deq_qdepth"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "deq_qdepth"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 498,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].deq_qdepth=(bit<32>)standard_metadata.deq_qdepth"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "priority"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "priority"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 500,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].priority = (priority_v)standard_metadata.priority"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "qid"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "qid"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 501,
+            "column" : 4,
+            "source_fragment" : "hdr.int_info[0].qid = (qid_v)standard_metadata.qid"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_0"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port1_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 377,
+            "column" : 8,
+            "source_fragment" : "reg_port1_qdepth_0.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port1_enq_qdepth0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_0"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 378,
+            "column" : 8,
+            "source_fragment" : "hdr.int_info[0].port1_enq_qdepth0 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_1"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port1_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 384,
+            "column" : 6,
+            "source_fragment" : "reg_port1_qdepth_1.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port1_enq_qdepth1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_1"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 385,
+            "column" : 6,
+            "source_fragment" : "hdr.int_info[0].port1_enq_qdepth1 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_2"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port2_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 392,
+            "column" : 8,
+            "source_fragment" : "reg_port2_qdepth_0.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port2_enq_qdepth0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_2"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 393,
+            "column" : 8,
+            "source_fragment" : "hdr.int_info[0].port2_enq_qdepth0 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_3"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port2_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 399,
+            "column" : 6,
+            "source_fragment" : "reg_port2_qdepth_1.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port2_enq_qdepth1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_3"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 400,
+            "column" : 6,
+            "source_fragment" : "hdr.int_info[0].port2_enq_qdepth1 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_4"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port3_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 408,
+            "column" : 8,
+            "source_fragment" : "reg_port3_qdepth_0.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port3_enq_qdepth0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 409,
+            "column" : 8,
+            "source_fragment" : "hdr.int_info[0].port3_enq_qdepth0 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_5"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port3_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 415,
+            "column" : 6,
+            "source_fragment" : "reg_port3_qdepth_1.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port3_enq_qdepth1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_5"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 416,
+            "column" : 6,
+            "source_fragment" : "hdr.int_info[0].port3_enq_qdepth1 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_6"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port4_qdepth_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 423,
+            "column" : 8,
+            "source_fragment" : "reg_port4_qdepth_0.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port4_enq_qdepth0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 424,
+            "column" : 8,
+            "source_fragment" : "hdr.int_info[0].port4_enq_qdepth0 = qdepth_value"
+          }
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_7"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "MyEgress.reg_port4_qdepth_1"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 430,
+            "column" : 6,
+            "source_fragment" : "reg_port4_qdepth_1.read(qdepth_value,0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["int_info[0]", "port4_enq_qdepth1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "qdepth_value_7"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 431,
+            "column" : 6,
+            "source_fragment" : "hdr.int_info[0].port4_enq_qdepth1 = qdepth_value"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 208,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "tbl_mpolkaintcore289",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 289,
+            "column" : 33,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21],
+          "actions" : ["mpolkaintcore289"],
+          "base_default_next" : "node_4",
+          "next_tables" : {
+            "mpolkaintcore289" : "node_4"
+          },
+          "default_entry" : {
+            "action_id" : 21,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_srcRoute_nhop",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 292,
+            "column" : 12,
+            "source_fragment" : "srcRoute_nhop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["MyIngress.srcRoute_nhop"],
+          "base_default_next" : "node_6",
+          "next_tables" : {
+            "MyIngress.srcRoute_nhop" : "node_6"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore295",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 295,
+            "column" : 25,
+            "source_fragment" : "= 1; ..."
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11],
+          "actions" : ["mpolkaintcore295"],
+          "base_default_next" : "node_8",
+          "next_tables" : {
+            "mpolkaintcore295" : "node_8"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore302",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 302,
+            "column" : 28,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12],
+          "actions" : ["mpolkaintcore302"],
+          "base_default_next" : "tbl_mpolkaintcore306",
+          "next_tables" : {
+            "mpolkaintcore302" : "tbl_mpolkaintcore306"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone_packet",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 304,
+            "column" : 16,
+            "source_fragment" : "clone_packet((bit<32>)meta.count)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4],
+          "actions" : ["MyIngress.clone_packet"],
+          "base_default_next" : "tbl_mpolkaintcore306",
+          "next_tables" : {
+            "MyIngress.clone_packet" : "tbl_mpolkaintcore306"
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore306",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 306,
+            "column" : 26,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["mpolkaintcore306"],
+          "base_default_next" : "tbl_mpolkaintcore310",
+          "next_tables" : {
+            "mpolkaintcore306" : "tbl_mpolkaintcore310"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore310",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 310,
+            "column" : 23,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16],
+          "actions" : ["mpolkaintcore310"],
+          "base_default_next" : "node_15",
+          "next_tables" : {
+            "mpolkaintcore310" : "node_15"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore313",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 313,
+            "column" : 28,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["mpolkaintcore313"],
+          "base_default_next" : "tbl_mpolkaintcore317",
+          "next_tables" : {
+            "mpolkaintcore313" : "tbl_mpolkaintcore317"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone_packet_0",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 315,
+            "column" : 16,
+            "source_fragment" : "clone_packet((bit<32>)meta.count)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [5],
+          "actions" : ["MyIngress.clone_packet"],
+          "base_default_next" : "tbl_mpolkaintcore317",
+          "next_tables" : {
+            "MyIngress.clone_packet" : "tbl_mpolkaintcore317"
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore317",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 317,
+            "column" : 26,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["mpolkaintcore317"],
+          "base_default_next" : "tbl_mpolkaintcore321",
+          "next_tables" : {
+            "mpolkaintcore317" : "tbl_mpolkaintcore321"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore321",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 321,
+            "column" : 23,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19],
+          "actions" : ["mpolkaintcore321"],
+          "base_default_next" : "node_22",
+          "next_tables" : {
+            "mpolkaintcore321" : "node_22"
+          },
+          "default_entry" : {
+            "action_id" : 19,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore324",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 324,
+            "column" : 28,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [17],
+          "actions" : ["mpolkaintcore324"],
+          "base_default_next" : "tbl_mpolkaintcore328",
+          "next_tables" : {
+            "mpolkaintcore324" : "tbl_mpolkaintcore328"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_clone_packet_1",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 326,
+            "column" : 16,
+            "source_fragment" : "clone_packet((bit<32>)meta.count)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [6],
+          "actions" : ["MyIngress.clone_packet"],
+          "base_default_next" : "tbl_mpolkaintcore328",
+          "next_tables" : {
+            "MyIngress.clone_packet" : "tbl_mpolkaintcore328"
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore328",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 328,
+            "column" : 26,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18],
+          "actions" : ["mpolkaintcore328"],
+          "base_default_next" : "tbl_do_resubmit_reason1",
+          "next_tables" : {
+            "mpolkaintcore328" : "tbl_do_resubmit_reason1"
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_do_resubmit_reason1",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 331,
+            "column" : 12,
+            "source_fragment" : "do_resubmit_reason1()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [7],
+          "actions" : ["MyIngress.do_resubmit_reason1"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.do_resubmit_reason1" : null
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_mpolkaintcore335",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 335,
+            "column" : 38,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20],
+          "actions" : ["mpolkaintcore335"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "mpolkaintcore335" : null
+          },
+          "default_entry" : {
+            "action_id" : 20,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.ipv4_lpm",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 262,
+            "column" : 8,
+            "source_fragment" : "ipv4_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9, 2, 0],
+          "actions" : ["MyIngress.ipv4_forward", "MyIngress.drop", "NoAction"],
+          "base_default_next" : "MyIngress.ip_sender_match_table",
+          "next_tables" : {
+            "MyIngress.ipv4_forward" : "MyIngress.ip_sender_match_table",
+            "MyIngress.drop" : "MyIngress.ip_sender_match_table",
+            "NoAction" : "MyIngress.ip_sender_match_table"
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "MyIngress.ip_sender_match_table",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 275,
+            "column" : 10,
+            "source_fragment" : "ip_sender_match_table"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ipv4.srcAddr",
+              "target" : ["ipv4", "srcAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10, 1],
+          "actions" : ["MyIngress.ip_sender_change_priority", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.ip_sender_change_priority" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 1,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_drop",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 345,
+            "column" : 10,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [3],
+          "actions" : ["MyIngress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 288,
+            "column" : 8,
+            "source_fragment" : "meta.apply_sr==1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._apply_sr2"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_mpolkaintcore289",
+          "false_next" : "node_31"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 290,
+            "column" : 10,
+            "source_fragment" : "meta.mymeta.resubmit_reason == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._mymeta_resubmit_reason12"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "tbl_srcRoute_nhop",
+          "false_next" : "node_29"
+        },
+        {
+          "name" : "node_6",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 294,
+            "column" : 15,
+            "source_fragment" : "meta.count == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._count6"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0000"
+              }
+            }
+          },
+          "true_next" : "tbl_mpolkaintcore295",
+          "false_next" : "node_8"
+        },
+        {
+          "name" : "node_8",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 300,
+            "column" : 15,
+            "source_fragment" : "(meta.port & (9w1 << (bit<8>)(meta.count - 1))) > 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._port4"]
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "<<",
+                          "left" : {
+                            "type" : "hexstr",
+                            "value" : "0x0001"
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "&",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "+",
+                                          "left" : {
+                                            "type" : "field",
+                                            "value" : ["scalars", "metadata._count6"]
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x01ff"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x01ff"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x00ff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xff"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01ff"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0000"
+              }
+            }
+          },
+          "true_next" : "node_9",
+          "false_next" : "tbl_mpolkaintcore310"
+        },
+        {
+          "name" : "node_9",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 301,
+            "column" : 17,
+            "source_fragment" : "meta.n_bits == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "tbl_mpolkaintcore302",
+          "false_next" : "node_11"
+        },
+        {
+          "name" : "node_11",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 303,
+            "column" : 23,
+            "source_fragment" : "meta.n_bits >= 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">=",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_clone_packet",
+          "false_next" : "tbl_mpolkaintcore306"
+        },
+        {
+          "name" : "node_15",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 311,
+            "column" : 15,
+            "source_fragment" : "(meta.port & (9w1 << (bit<8>)(meta.count - 1))) > 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._port4"]
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "<<",
+                          "left" : {
+                            "type" : "hexstr",
+                            "value" : "0x0001"
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "&",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "+",
+                                          "left" : {
+                                            "type" : "field",
+                                            "value" : ["scalars", "metadata._count6"]
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x01ff"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x01ff"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x00ff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xff"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01ff"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0000"
+              }
+            }
+          },
+          "true_next" : "node_16",
+          "false_next" : "tbl_mpolkaintcore321"
+        },
+        {
+          "name" : "node_16",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 312,
+            "column" : 17,
+            "source_fragment" : "meta.n_bits == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "tbl_mpolkaintcore313",
+          "false_next" : "node_18"
+        },
+        {
+          "name" : "node_18",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 314,
+            "column" : 23,
+            "source_fragment" : "meta.n_bits >= 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">=",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_clone_packet_0",
+          "false_next" : "tbl_mpolkaintcore317"
+        },
+        {
+          "name" : "node_22",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 322,
+            "column" : 15,
+            "source_fragment" : "(meta.port & (9w1 << (bit<8>)(meta.count - 1))) > 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata._port4"]
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "<<",
+                          "left" : {
+                            "type" : "hexstr",
+                            "value" : "0x0001"
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "&",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "&",
+                                      "left" : {
+                                        "type" : "expression",
+                                        "value" : {
+                                          "op" : "+",
+                                          "left" : {
+                                            "type" : "field",
+                                            "value" : ["scalars", "metadata._count6"]
+                                          },
+                                          "right" : {
+                                            "type" : "hexstr",
+                                            "value" : "0x01ff"
+                                          }
+                                        }
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x01ff"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x00ff"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0xff"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x01ff"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0000"
+              }
+            }
+          },
+          "true_next" : "node_23",
+          "false_next" : "tbl_do_resubmit_reason1"
+        },
+        {
+          "name" : "node_23",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 323,
+            "column" : 17,
+            "source_fragment" : "meta.n_bits == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00"
+              }
+            }
+          },
+          "true_next" : "tbl_mpolkaintcore324",
+          "false_next" : "node_25"
+        },
+        {
+          "name" : "node_25",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 325,
+            "column" : 23,
+            "source_fragment" : "meta.n_bits >= 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">=",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._n_bits7"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_clone_packet_1",
+          "false_next" : "tbl_mpolkaintcore328"
+        },
+        {
+          "name" : "node_29",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 333,
+            "column" : 17,
+            "source_fragment" : "meta.mymeta.resubmit_reason == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._mymeta_resubmit_reason12"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_mpolkaintcore335"
+        },
+        {
+          "name" : "node_31",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 339,
+            "column" : 11,
+            "source_fragment" : "hdr.ipv4.diffserv != 55"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "!=",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "diffserv"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x37"
+              }
+            }
+          },
+          "true_next" : "MyIngress.ipv4_lpm",
+          "false_next" : "tbl_drop"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 355,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : "node_37",
+      "tables" : [
+        {
+          "name" : "tbl_drop_0",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 533,
+            "column" : 6,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [31],
+          "actions" : ["MyEgress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 31,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyEgress.addIntInfo",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 518,
+            "column" : 8,
+            "source_fragment" : "addIntInfo"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ethernet.etherType",
+              "target" : ["ethernet", "etherType"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [32, 22],
+          "actions" : ["MyEgress.add_int_info", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.add_int_info" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 22,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port1_qdepth0",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 538,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port1_qdepth0()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23],
+          "actions" : ["MyEgress.w_register_manipulation_port1_qdepth0"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port1_qdepth0" : null
+          },
+          "default_entry" : {
+            "action_id" : 23,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port1_qdepth1",
+          "id" : 22,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 541,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port1_qdepth1()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [24],
+          "actions" : ["MyEgress.w_register_manipulation_port1_qdepth1"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port1_qdepth1" : null
+          },
+          "default_entry" : {
+            "action_id" : 24,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port2_qdepth0",
+          "id" : 23,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 544,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port2_qdepth0()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25],
+          "actions" : ["MyEgress.w_register_manipulation_port2_qdepth0"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port2_qdepth0" : null
+          },
+          "default_entry" : {
+            "action_id" : 25,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port2_qdepth1",
+          "id" : 24,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 547,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port2_qdepth1()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [26],
+          "actions" : ["MyEgress.w_register_manipulation_port2_qdepth1"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port2_qdepth1" : null
+          },
+          "default_entry" : {
+            "action_id" : 26,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port3_qdepth0",
+          "id" : 25,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 550,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port3_qdepth0()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [27],
+          "actions" : ["MyEgress.w_register_manipulation_port3_qdepth0"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port3_qdepth0" : null
+          },
+          "default_entry" : {
+            "action_id" : 27,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port3_qdepth1",
+          "id" : 26,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 553,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port3_qdepth1()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [28],
+          "actions" : ["MyEgress.w_register_manipulation_port3_qdepth1"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port3_qdepth1" : null
+          },
+          "default_entry" : {
+            "action_id" : 28,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port4_qdepth0",
+          "id" : 27,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 556,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port4_qdepth0()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [29],
+          "actions" : ["MyEgress.w_register_manipulation_port4_qdepth0"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port4_qdepth0" : null
+          },
+          "default_entry" : {
+            "action_id" : 29,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_w_register_manipulation_port4_qdepth1",
+          "id" : 28,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 559,
+            "column" : 8,
+            "source_fragment" : "w_register_manipulation_port4_qdepth1()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [30],
+          "actions" : ["MyEgress.w_register_manipulation_port4_qdepth1"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.w_register_manipulation_port4_qdepth1" : null
+          },
+          "default_entry" : {
+            "action_id" : 30,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_37",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 532,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_port == standard_metadata.ingress_port"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "egress_port"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "ingress_port"]
+              }
+            }
+          },
+          "true_next" : "tbl_drop_0",
+          "false_next" : "node_39"
+        },
+        {
+          "name" : "node_39",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 536,
+            "column" : 13,
+            "source_fragment" : "hdr.int_option.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["int_option", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "node_40",
+          "false_next" : "node_43"
+        },
+        {
+          "name" : "node_40",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 565,
+            "column" : 13,
+            "source_fragment" : "meta.mymeta.resubmit_reason == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata._mymeta_resubmit_reason12"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "MyEgress.addIntInfo",
+          "false_next" : "MyEgress.addIntInfo"
+        },
+        {
+          "name" : "node_43",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 537,
+            "column" : 9,
+            "source_fragment" : "standard_metadata.qid == 0 && standard_metadata.egress_port == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0001"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port1_qdepth0",
+          "false_next" : "node_45"
+        },
+        {
+          "name" : "node_45",
+          "id" : 18,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 540,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 1 && standard_metadata.egress_port == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0001"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port1_qdepth1",
+          "false_next" : "node_47"
+        },
+        {
+          "name" : "node_47",
+          "id" : 19,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 543,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 0 && standard_metadata.egress_port == 2"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0002"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port2_qdepth0",
+          "false_next" : "node_49"
+        },
+        {
+          "name" : "node_49",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 546,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 1 && standard_metadata.egress_port == 2"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0002"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port2_qdepth1",
+          "false_next" : "node_51"
+        },
+        {
+          "name" : "node_51",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 549,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 0 && standard_metadata.egress_port == 3"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0003"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port3_qdepth0",
+          "false_next" : "node_53"
+        },
+        {
+          "name" : "node_53",
+          "id" : 22,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 552,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 1 && standard_metadata.egress_port == 3"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0003"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port3_qdepth1",
+          "false_next" : "node_55"
+        },
+        {
+          "name" : "node_55",
+          "id" : 23,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 555,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 0 && standard_metadata.egress_port == 4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0004"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_w_register_manipulation_port4_qdepth0",
+          "false_next" : "node_57"
+        },
+        {
+          "name" : "node_57",
+          "id" : 24,
+          "source_info" : {
+            "filename" : "m-polka-int-core.p4",
+            "line" : 558,
+            "column" : 14,
+            "source_fragment" : "standard_metadata.qid == 1 && standard_metadata.egress_port == 4"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "qid"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0004"
+                  }
+                }
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_w_register_manipulation_port4_qdepth1"
+        }
+      ]
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "m-polka-int-core.p4",
+        "line" : 591,
+        "column" : 4,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc_0",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ],
+    [
+      "queueing_metadata.qid",
+      ["standard_metadata", "qid"]
+    ]
+  ],
+  "program" : "core-multiplas-filas-solucao1.bmv2/m-polka-int-core.p4i",
+  "__meta__" : {
+    "version" : [2, 23],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}

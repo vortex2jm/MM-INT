@@ -1,0 +1,14 @@
+table_set_default tunnel_encap_process_sr tdrop
+table_add tunnel_encap_process_sr add_sourcerouting_header 10.0.1.1/32 => 1 1 00:04:00:00:00:00 0xe71f5a0cd5e4eef2e677b4fca702
+table_add tunnel_encap_process_sr add_sourcerouting_header 10.0.1.3/32 => 1 1 00:04:00:00:00:02 0xe71f5a0cd5e4eef2e677b4fca702
+table_add tunnel_encap_process_sr add_sourcerouting_header 10.0.1.4/32 => 1 1 00:04:00:00:00:03 0xe71f5a0cd5e4eef2e677b4fca702
+
+
+table_add ipv4_lpm ipv4_forward 10.0.1.1/32 => 00:04:00:00:00:00 1
+table_add ipv4_lpm ipv4_forward 10.0.1.2/32 => 00:04:00:00:00:01 2
+table_add ipv4_lpm ipv4_forward 10.0.1.3/32 => 00:04:00:00:00:02 1
+table_add ipv4_lpm ipv4_forward 10.0.1.4/32 => 00:04:00:00:00:03 1
+table_add ipv4_lpm ipv4_forward 10.0.1.5/32 => 00:04:00:00:00:04 1
+table_add ipv4_lpm ipv4_forward 10.0.1.6/32 => 00:04:00:00:00:05 3
+table_add ipv4_lpm ipv4_forward 10.0.1.7/32 => 00:04:00:00:00:06 1
+table_add ipv4_lpm ipv4_forward 10.0.1.8/32 => 00:04:00:00:00:07 1
