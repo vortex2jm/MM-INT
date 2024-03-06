@@ -44,7 +44,7 @@ class INTTopo(Topo):
             switch = self.addSwitch('e%d' % (h + 1),
                                     sw_path = sw_path,
                                     #json_path = "/home/p4/INT-M-PolKA/int-mpolka/m-polka-int-edge.json",
-                                    json_path = "/home/p4/labs/mpolka/int-mpolka/m-polka-int-edge.json",
+                                    json_path = "/home/vagrant/MM-INT/m-polka-int-edge.json",
                                     thrift_port = thrift_port,
                                     pcap_dump = pcap_dump,
                                     log_console = False) #TESTE PARA LOG DOS SWITCHES
@@ -58,7 +58,7 @@ class INTTopo(Topo):
             switch = self.addSwitch('s%d' % (h + 1),
                                     sw_path = sw_path,
                                     #json_path = "/home/p4/INT-M-PolKA/int-mpolka/m-polka-int-core.json",
-                                    json_path = "/home/p4/labs/mpolka/int-mpolka/m-polka-int-core.json",
+                                    json_path = "/home/vagrant/MM-INT/m-polka-int-core.json",
                                     thrift_port = thrift_port,
                                     pcap_dump = pcap_dump,
                                     log_console = False)
@@ -128,7 +128,7 @@ def main():
 
     sleep(1)
 
-    print "Ready !"
+    print ("Ready !")
 
     CLI( net )
     net.stop()
