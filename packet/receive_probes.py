@@ -21,9 +21,9 @@ def main():
   header_fileLogAux = [f'{item}' for item in HEADER_LOGFILE]
   header = ", ".join(header_fileLogAux)
   
-  with open(file, 'w') as file:
+  with open(file, 'w') as log_file:
     # Escreve o cabeçalho no início do arquivo
-    file.write(str(header) + '\n')
+    log_file.write(str(header) + '\n')
 
   bind_layers(Ether, SourceRoute)
   bind_layers(SourceRoute, IntHeader)
