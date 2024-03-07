@@ -41,24 +41,44 @@ class IntData(Packet):
 class SourceRoute(Packet):
    fields_desc = [ BitField("nrouteid", 0, 112)]
 
+
+MONITORING_DATA = {
+  
+}
+
 # Functions===================================================
 def handle_pkt(file, pkt):
-  print(pkt)
-  pkt.show2()
+  # print(pkt)
+  # pkt.show2()
 
   if pkt[SourceRoute][IntHeader].remaining_hop_count != 0:     
     header_int_primeiro = pkt[SourceRoute][IntHeader]
     print(f"primeiro = {header_int_primeiro}")
-
-  for i in range(pkt[SourceRoute][IntHeader].remaining_hop_count):
-    header_int = header_int_primeiro[IntData][i]
-    id_switch_atual = header_int.sw_id
-    print(f"switch = S{id_switch_atual}")
-    fields_value_line = f'{header_int.sw_id}, {header_int.port1_enq_qdepth0}, {header_int.port1_enq_qdepth1}, {header_int.port2_enq_qdepth0}, {header_int.port2_enq_qdepth1}, {header_int.port3_enq_qdepth0}, {header_int.port3_enq_qdepth1}, {header_int.port4_enq_qdepth0}, {header_int.port4_enq_qdepth1}\n'
-    print(fields_value_line)
-
+  
   with open(file,'a+') as file:
-     file.write(fields_value_line)
+    
+    for i in range(pkt[SourceRoute][IntHeader].remaining_hop_count):
+      
+      header_int = header_int_primeiro[IntData][i]
+      
+      monitoring_data = {
+        'swid':header_int.sw_id,
+        'p1q0':header_int.port1_enq_qdepth0,
+        'p1q1':header_int.port1_enq_qdepth1,
+        'p2q0':header_int.port2_enq_qdepth0,
+        'p2q1':header_int.port2_enq_qdepth1,
+        'p3q0':header_int.port3_enq_qdepth0,
+        'p3q1':header_int.port3_enq_qdepth1,
+        'p4q0':header_int.port4_enq_qdepth0,
+        'p4q1':header_int.port4_enq_qdepth1 
+      }
+
+      # file.write() -> This is not working yet 
+
+      # print(f"switch = S{header_int.sw_id}")
+      # for value in monitoring_data.values():
+        # print(value, end=' ')
+      # print('\n')
 
 if __name__ == '__main__':
    pass
