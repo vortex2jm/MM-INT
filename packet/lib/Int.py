@@ -1,4 +1,5 @@
 from scapy.all import BitField, Packet
+from lib.influx import DataBase
 
 # Header===================================================
 class IntHeader(Packet):
@@ -42,25 +43,40 @@ class SourceRoute(Packet):
    fields_desc = [ BitField("nrouteid", 0, 112)]
 
 
-MONITORING_DATA = {
-  
-}
+# Global======================================================
+HEADER_LOGFILE = ['switchID_t', 'port1_enq_qdepth0', 'port1_enq_qdepth1', 
+                    'port2_enq_qdepth0', 'port2_enq_qdepth1', 
+                    'port3_enq_qdepth0', 'port3_enq_qdepth1', 
+                    'port4_enq_qdepth0', 'port4_enq_qdepth1' ]
 
-# Functions===================================================
-def handle_pkt(file, pkt):
-  # print(pkt)
-  # pkt.show2()
 
-  if pkt[SourceRoute][IntHeader].remaining_hop_count != 0:     
-    header_int_primeiro = pkt[SourceRoute][IntHeader]
-    print(f"primeiro = {header_int_primeiro}")
-  
-  with open(file,'a+') as file:
-    
+# Tools===================================================
+class IntTools:
+  @staticmethod
+  def create_logfile(file):
+    header_fileLogAux = [f'{item}' for item in HEADER_LOGFILE]
+    header = ", ".join(header_fileLogAux)
+    # Writes the file header
+    with open(file, 'w') as log_file:
+      log_file.write(str(header) + '\n')
+
+  @staticmethod
+  def handle_pkt(pkt ,file=None, db=None):
+    # Methods to show packet details
+    # print(pkt)
+    # pkt.show2()
+
+    if pkt[SourceRoute][IntHeader].remaining_hop_count != 0:     
+      header_int_primeiro = pkt[SourceRoute][IntHeader]
+      print(f"primeiro = {header_int_primeiro}")
+
+    # Verifying if file parameter is not the default
+    log_file = None
+    if file != None:
+      log_file = open(file, 'a+')
+
     for i in range(pkt[SourceRoute][IntHeader].remaining_hop_count):
-      
       header_int = header_int_primeiro[IntData][i]
-      
       monitoring_data = {
         'swid':header_int.sw_id,
         'p1q0':header_int.port1_enq_qdepth0,
@@ -73,12 +89,27 @@ def handle_pkt(file, pkt):
         'p4q1':header_int.port4_enq_qdepth1 
       }
 
-      # file.write() -> This is not working yet 
+      # Verifying if there's a logs file
+      if log_file != None:
+        # file.write() 
+        print(f"switch = S{header_int.sw_id}")
+        for value in monitoring_data.values():
+          print(value, end=' ')
+        print('\n')
 
-      # print(f"switch = S{header_int.sw_id}")
-      # for value in monitoring_data.values():
-        # print(value, end=' ')
-      # print('\n')
+      # Verifying if there's a database
+      if db == None:
+        print('The data will not be inserted into the database because it has not been started!')
+        continue
+      
+      #Inserting data on DB
+      points = DataBase.parse_packet(monitoring_data)
+      db.write_data(points)
+
+    # Writing finished
+    if log_file != None:
+      log_file.close()                
+
 
 if __name__ == '__main__':
    pass
