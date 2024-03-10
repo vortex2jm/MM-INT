@@ -30,7 +30,7 @@ def main():
 
   db = DataBase(TOKEN, ORG, BUCKET) #This parameter will be inserted on handle_packet
   IntTools.create_logfile(file)  # Creates file for logs
-  sniff(iface = iface, prn = lambda x: IntTools.handle_pkt(x, file), filter = "ether proto 0x2020")
+  sniff(iface = iface, prn = lambda x: IntTools.handle_pkt(x, file, db), filter = "ether proto 0x2020")
 
 # Running=================
 if __name__ == '__main__':

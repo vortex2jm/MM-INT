@@ -1,5 +1,6 @@
 from influxdb_client import InfluxDBClient, WritePrecision, Point
 from influxdb_client.client.write_api import SYNCHRONOUS
+import sys
 
 class DataBase:
   def __init__(self, token, org, bucket, url='http://localhost:8086'):
@@ -7,12 +8,20 @@ class DataBase:
     self.__org = org
     self.__bucket = bucket
     self.__url = url
-    self.__write_api = InfluxDBClient(url=self.__url, token=self.__token, org=self.__org).write_api(write_options=SYNCHRONOUS)
-  
+    try: 
+      self.__write_api = InfluxDBClient(url=self.__url, token=self.__token, org=self.__org).write_api(write_options=SYNCHRONOUS)
+    except:
+      print('Could not connect to InfluxDB. Make sure the connection is up or remove the instance.')
+      sys.exit(1)
+
   def write_data(self, points):
-    for point in points:
-      self.__write_api.write(org=self.__org, bucket=self.__bucket, record=point, write_precision=WritePrecision.MS)
-  
+    try:
+      for point in points:
+        self.__write_api.write(org=self.__org, bucket=self.__bucket, record=point, write_precision=WritePrecision.MS)
+    except:
+      print('Could not connect to InfluxDB. Make sure the connection is up or remove the instance.')
+      sys.exit(1)
+
   @staticmethod
   def parse_packet(monitoring_data):
     points = []

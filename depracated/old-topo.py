@@ -12,16 +12,16 @@ import os
 from time import sleep
 
 parser = argparse.ArgumentParser(description='Mininet demo')
-#mudei
-#parser.add_argument('--behavioral-exe', help='Path to behavioral executable',
-                    #type=str, action="store", default="/home/p4/INT-M-PolKA/behavioral-model/targets/simple_switch/simple_switch")
+
 parser.add_argument('--behavioral-exe', help='Path to behavioral executable',
                     type=str, action="store", default="simple_switch") #por estar usando o caminho la acho q ta certo o priority e tals
 
 parser.add_argument('--thrift-port', help='Thrift server port for table updates',
                     type=int, action="store", default=9090)
+
 #parser.add_argument('--json', help='Path to JSON config file',
 #                    type=str, action="store", required=False)
+
 parser.add_argument('--pcap-dump', help='Dump packets on interfaces to pcap files',
                     type=str, action="store", required=False, default=False)
 
