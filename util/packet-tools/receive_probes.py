@@ -1,36 +1,59 @@
 #!/usr/bin python3
-from lib.Int import SourceRoute, IntHeader, IntData, IntTools
+from lib.Int import SourceRoute, IntHeader, IntDataS3, IntDataS1, IntTools
 from scapy.all import bind_layers, Ether, IP, sniff
 from lib.influx import DataBase
 from dotenv import load_dotenv
-import sys
+import argparse
 import os
 
+# env
 load_dotenv()
 
 TOKEN=os.getenv('TOKEN')
 ORG='MM-Int'
 BUCKET='solution-3'
 
-def main():
-  if len(sys.argv) < 3:
-    print("Usage: python receive.py <core switch connected interface> <file name> (ex:e2-eth1 test-file)")
-    sys.exit(1)
-  
-  iface = sys.argv[1]
-  file = f'logs/log_INT_{sys.argv[2]}.txt'
+# arguments========================
+parser = argparse.ArgumentParser(description='===INT PROBES COLLECTOR===')
+parser.add_argument('-s', '--solution', type=int, action='store', help='Chosen routing solution (default:3)', default=3)
+parser.add_argument('-i', '--interface', type=str, action='store', help='Interface connected to core switch (ex:e2-eth1)', required=True)
+parser.add_argument('-db', '--database', action='store_true', help='Write data in database')
+parser.add_argument('-f', '--file', type=str, action='store', help='Log file name', default=None)
+args = parser.parse_args()
 
-  bind_layers(Ether, SourceRoute)
-  bind_layers(SourceRoute, IntHeader)
-  bind_layers(IntHeader,IntData)
-  bind_layers(IntData, IntData)
-  bind_layers(IntData, IP) 
+def main():
+  iface = args.interface
+  IntTools.solution = args.solution
+
+  if args.solution == 1:
+    bind_layers(Ether, IntHeader)
+    bind_layers(IntHeader,IntDataS1)
+    bind_layers(IntDataS1, IntDataS1)
+    bind_layers(IntDataS1, IP)
+    callback = IntTools.handle_pkt_s1
+  
+  if args.solution == 3: 
+    bind_layers(Ether, SourceRoute)
+    bind_layers(SourceRoute, IntHeader)
+    bind_layers(IntHeader,IntDataS3)
+    bind_layers(IntDataS3, IntDataS3)
+    bind_layers(IntDataS3, IP)
+    callback = IntTools.handle_pkt_s3 # Assigning function
   
   print("Waiting packets...")
 
-  db = DataBase(TOKEN, ORG, BUCKET) #This parameter will be inserted on handle_packet
-  IntTools.create_logfile(file)  # Creates file for logs
-  sniff(iface = iface, prn = lambda x: IntTools.handle_pkt(x, file, db), filter = "ether proto 0x2020")
+  db = None
+
+  if args.database: 
+    db = DataBase(TOKEN, ORG, BUCKET)
+  
+  if args.file:
+    file = f'logs/log_INT_{args.file}.txt'
+    IntTools.create_logfile(file)
+
+  print('ALOUUUUU')
+
+  sniff(iface = iface, prn = lambda x: callback(x, file, db), filter = "ether proto 0x2020")
 
 # Running=================
 if __name__ == '__main__':

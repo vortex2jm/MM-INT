@@ -10,19 +10,11 @@ import os
 
 # Catching arguments========================================
 parser = argparse.ArgumentParser(description='Mininet demo')
-
-parser.add_argument('--behavioral-exe', help='Path to behavioral executable',
-                    type=str, action="store", default="simple_switch")
-
-parser.add_argument('--thrift-port', help='Thrift server port for table updates',
-                    type=int, action="store", default=9090)
-
-#parser.add_argument('--json', help='Path to JSON config file',
-#                    type=str, action="store", required=False)
-
-parser.add_argument('--pcap-dump', help='Dump packets on interfaces to pcap files',
-                    type=str, action="store", required=False, default=False)
-
+parser.add_argument('--behavioral-exe', help='Path to behavioral executable', type=str, action="store", default="simple_switch")
+parser.add_argument('--thrift-port', help='Thrift server port for table updates', type=int, action="store", default=9090)
+#parser.add_argument('--json', help='Path to JSON config file', type=str, action="store", required=False)
+parser.add_argument('--pcap-dump', help='Dump packets on interfaces to pcap files', type=str, action="store", required=False, default=False)
+parser.add_argument('-s', '--solution', type=int, action='store' ,help='Chosen solution for routing', required=True)
 args = parser.parse_args()
 
 
@@ -41,8 +33,10 @@ def main():
                   controller = None)
     net.start()
     net.staticArp()
-
-    os.system("./solutions/sol3/flow_table/f.sh")
+    
+    # Choosing solution===========
+    sol = args.solution
+    os.system(f"./solutions/sol{sol}/flow_table/f.sh")
 
     for n in range(num_hosts):
         h = net.get('h%d' % (n + 1))
