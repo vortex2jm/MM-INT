@@ -11,7 +11,7 @@ load_dotenv()
 
 TOKEN=os.getenv('TOKEN')
 ORG='MM-Int'
-BUCKET='solution-3'
+BUCKET=['solution-3', 'solution-1']
 
 # arguments========================
 parser = argparse.ArgumentParser(description='===INT PROBES COLLECTOR===')

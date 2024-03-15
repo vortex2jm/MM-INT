@@ -83,22 +83,22 @@ class IntTools:
   @classmethod
   def create_logfile(cls, file):
     if cls.solution == 3:
-      header_fileLogAux = [f'{item}' for item in HEADER_LOGFILE_S3]
+      header_file_log_aux = [f'{item}' for item in HEADER_LOGFILE_S3]
     elif cls.solution == 1:
-      header_fileLogAux = [f'{item}' for item in HEADER_LOGFILE_S1]
+      header_file_log_aux = [f'{item}' for item in HEADER_LOGFILE_S1]
     else:
       print('Something went wrong')
       sys.exit(1)
     
-    header = ", ".join(header_fileLogAux)
+    header = ", ".join(header_file_log_aux)
     # Writes the file header
     with open(file, 'w') as log_file:
       log_file.write(str(header) + '\n')
 
 
   #=============================================================
-  @staticmethod
-  def handle_pkt_s3(pkt ,file=None, db=None):
+  @classmethod
+  def handle_pkt_s3(cls, pkt ,file=None, db=None):
     # Methods to show packet details
     # print(pkt)
     # pkt.show2()
@@ -142,8 +142,8 @@ class IntTools:
         continue
       
       #Inserting data on DB========================
-      points = DataBase.parse_packet(monitoring_data)
-      db.write_data(points)
+      points = DataBase.parse_packet_s3(monitoring_data)
+      db.write_data(points, cls.solution)
 
     # Writing finished
     if log_file:
@@ -151,8 +151,8 @@ class IntTools:
 
 
   #=======================================================
-  @staticmethod
-  def handle_pkt_s1(pkt ,file=None, db=None):
+  @classmethod
+  def handle_pkt_s1(cls, pkt ,file=None, db=None):
 
     if pkt[IntHeader].remaining_hop_count != 0:   
       header_int_first = pkt[IntHeader]
@@ -187,8 +187,8 @@ class IntTools:
         continue
       
       #Inserting data on DB========================
-      points = DataBase.parse_packet(monitoring_data)
-      db.write_data(points)
+      points = DataBase.parse_packet_s1(monitoring_data)
+      db.write_data(points, cls.solution)
 
     # Writing finished
     if log_file:
