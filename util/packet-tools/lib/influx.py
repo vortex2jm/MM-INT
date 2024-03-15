@@ -12,7 +12,7 @@ class DataBase:
     try: 
       self.__write_api = InfluxDBClient(url=self.__url, token=self.__token, org=self.__org).write_api(write_options=SYNCHRONOUS)
     except:
-      print('Could not connect to InfluxDB. Make sure the connection is up or remove the instance.')
+      print('Could not connect to InfluxDB.')
       sys.exit(1)
 
   #===========================================
@@ -22,14 +22,14 @@ class DataBase:
     elif sol == 1:
        bucket = self.__bucket[1]
     else:
-      print('This solution does not match with any bucket')
+      print('This solution does not match with any bucket.')
       sys.exit(1)
 
     try:
       for point in points:
         self.__write_api.write(org=self.__org, bucket=bucket, record=point, write_precision=WritePrecision.MS)
     except:
-      print('Could not connect to InfluxDB. Make sure the connection is up or remove the instance.')
+      print('Could not write data in bucket. Ensure the connection is up.')
       sys.exit(1)
 
   #===========================================
