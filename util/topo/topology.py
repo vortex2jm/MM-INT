@@ -2,13 +2,16 @@ from mininet.log import info
 from mininet.topo import Topo
 
 class INTTopo(Topo):
+
     "Single switch connected to n (< 256) hosts."
-    def __init__(self, sw_path, thrift_port, pcap_dump, n, **opts):
+    def __init__(self, sw_path, solution, thrift_port, pcap_dump, n, **opts):
         # Initialize topology and default options
         Topo.__init__(self, **opts)
 
         self.switch_list = []
         self.host_list = []
+        self.solution = solution
+        self.json_path = f'/home/vagrant/MM-INT/solutions/sol{self.solution}/config/'
 
         #Edge switch
         info("*** Adding P4Switches (edge)\n")
@@ -16,7 +19,7 @@ class INTTopo(Topo):
         for h in range(e):
             switch = self.addSwitch('e%d' % (h + 1),
                                     sw_path = sw_path,
-                                    json_path = "/home/vagrant/MM-INT/solutions/sol3/config/m-polka-int-edge.json",
+                                    json_path = f"{self.json_path}m-polka-int-edge.json",
                                     thrift_port = thrift_port,
                                     pcap_dump = pcap_dump,
                                     log_console = False) #Test for switch logs
@@ -29,7 +32,7 @@ class INTTopo(Topo):
         for h in range(m):
             switch = self.addSwitch('s%d' % (h + 1),
                                     sw_path = sw_path,
-                                    json_path = "/home/vagrant/MM-INT/solutions/sol3/config/m-polka-int-core.json",
+                                    json_path = f"{self.json_path}m-polka-int-core.json",
                                     thrift_port = thrift_port,
                                     pcap_dump = pcap_dump,
                                     log_console = False)

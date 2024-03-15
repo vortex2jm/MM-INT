@@ -43,6 +43,7 @@ def main():
   print("Waiting packets...")
 
   db = None
+  file = None
 
   if args.database: 
     db = DataBase(TOKEN, ORG, BUCKET)
@@ -50,8 +51,6 @@ def main():
   if args.file:
     file = f'logs/log_INT_{args.file}.txt'
     IntTools.create_logfile(file)
-
-  print('ALOUUUUU')
 
   sniff(iface = iface, prn = lambda x: callback(x, file, db), filter = "ether proto 0x2020")
 

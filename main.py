@@ -23,7 +23,7 @@ def main():
     num_hosts = 8
 
     topo = INTTopo(args.behavioral_exe,
-                   #args.json,
+                   args.solution,
                    args.thrift_port,
                    args.pcap_dump,
                    num_hosts)
