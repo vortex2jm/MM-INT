@@ -56,6 +56,12 @@ def main():
 
     sleep(1)
 
+    # Installing python dependencies
+    edgesw2 = net.get('e2')
+    print('Installing external dependencies...')
+    edgesw2.cmd('pip3 install influxdb_client python-dotenv')
+
+    # All
     print("Ready !")
 
     CLI( net )
