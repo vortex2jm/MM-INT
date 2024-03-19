@@ -11,13 +11,13 @@ load_dotenv()
 
 TOKEN=os.getenv('TOKEN')
 ORG='MM-Int'
-BUCKET=['solution-3', 'solution-1']
+# BUCKET=['solution-3', 'solution-1']
 
 # arguments========================
 parser = argparse.ArgumentParser(description='===INT PROBES COLLECTOR===')
 parser.add_argument('-s', '--solution', type=int, action='store', help='Chosen routing solution (default:3)', default=3)
 parser.add_argument('-i', '--interface', type=str, action='store', help='Interface connected to core switch (ex:e2-eth1)', required=True)
-parser.add_argument('-db', '--database', action='store_true', help='Write data in database')
+parser.add_argument('-db', '--database', action='store', help='Write data in bucket')
 parser.add_argument('-f', '--file', type=str, action='store', help='Log file name', default=None)
 args = parser.parse_args()
 
@@ -46,7 +46,7 @@ def main():
   file = None
 
   if args.database: 
-    db = DataBase(TOKEN, ORG, BUCKET)
+    db = DataBase(TOKEN, ORG, args.database)
   
   if args.file:
     file = f'logs/log_INT_{args.file}.txt'

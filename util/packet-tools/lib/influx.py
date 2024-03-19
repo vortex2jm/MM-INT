@@ -16,18 +16,10 @@ class DataBase:
       sys.exit(1)
 
   #===========================================
-  def write_data(self, points, sol):
-    if sol == 3:
-       bucket = self.__bucket[0]
-    elif sol == 1:
-       bucket = self.__bucket[1]
-    else:
-      print('This solution does not match with any bucket.')
-      sys.exit(1)
-
+  def write_data(self, points):
     try:
       for point in points:
-        self.__write_api.write(org=self.__org, bucket=bucket, record=point, write_precision=WritePrecision.MS)
+        self.__write_api.write(org=self.__org, bucket=self.__bucket, record=point, write_precision=WritePrecision.MS)
     except:
       print('Could not write data in bucket. Ensure the connection is up.')
       sys.exit(1)

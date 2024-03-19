@@ -97,8 +97,8 @@ class IntTools:
 
 
   #=============================================================
-  @classmethod
-  def handle_pkt_s3(cls, pkt ,file=None, db=None):
+  @staticmethod
+  def handle_pkt_s3(pkt ,file=None, db=None):
     # Methods to show packet details
     # print(pkt)
     # pkt.show2()
@@ -143,7 +143,7 @@ class IntTools:
       
       #Inserting data on DB========================
       points = DataBase.parse_packet_s3(monitoring_data)
-      db.write_data(points, cls.solution)
+      db.write_data(points)
 
     # Writing finished
     if log_file:
@@ -151,8 +151,8 @@ class IntTools:
 
 
   #=======================================================
-  @classmethod
-  def handle_pkt_s1(cls, pkt ,file=None, db=None):
+  @staticmethod
+  def handle_pkt_s1(pkt ,file=None, db=None):
 
     if pkt[IntHeader].remaining_hop_count != 0:   
       header_int_first = pkt[IntHeader]
@@ -188,7 +188,7 @@ class IntTools:
       
       #Inserting data on DB========================
       points = DataBase.parse_packet_s1(monitoring_data)
-      db.write_data(points, cls.solution)
+      db.write_data(points)
 
     # Writing finished
     if log_file:
