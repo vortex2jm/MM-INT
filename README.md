@@ -1,11 +1,9 @@
 # MM-INT Monitor
 
-This is a tool built for monitoring M-PolKA networks metadata with multiqueue switches through INT (In-Band Telemetry) probes. 
+This is a tool built for monitoring [M-PolKA](https://ieeexplore.ieee.org/document/9738811/authors#authors) networks metadata with multiqueue switches through INT (In-Band Telemetry) probes. 
 
 ## Installation
-
  - Firstly, you should install [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
-
  - Download this [virtual machine](https://drive.google.com/file/d/13a50AjPgYaTHknkU71zguEEmLHHJq54i/view), as it comes with a configured environment with some crucial dependencies for the tool.
  - Then, import the file:
  ![](./docs/assets/vbox.png)
