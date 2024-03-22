@@ -34,4 +34,4 @@ sudo chmod +x ./util/scripts/createdb.sh
 
 #
  
-If you followed all the steps so far, the environment should be fully configured. Now, you can check the usage [here]()
+If you've followed all the steps so far, the environment should be fully configured. Now, you can check the usage [here](./docs/README.md).
