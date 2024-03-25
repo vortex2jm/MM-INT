@@ -10,6 +10,7 @@ This is a tool built for monitoring [M-PolKA](https://ieeexplore.ieee.org/docume
  - Allocate at least 4GB of RAM to the machine to prevent frequent freezing:
  ![](./docs/assets/vmconfig.png)
  - After importing, start the VM and choose *vagrant* user. The password is *vagrant* too.
+ ![](./docs/assets/vmstart.png)
  - **In the home directory**, clone this project:
 ```bash
 git clone https://github.com/vortex2jm/MM-INT.git && cd MM-INT
