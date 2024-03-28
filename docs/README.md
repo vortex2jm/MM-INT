@@ -27,9 +27,47 @@ Click on **Configure Later** and lets create new buckets
 
 ![](./assets/influxinitial.png)
 
-Here you should create 4 buckets. You can choose the names, but I suggest choose simple names, cause each one will store data from each edge switch in the topology. In this case, I have named as **e1, e2, e3 and e4**.
+Here you should create 4 buckets, each one will store data from each edge switch in the topology. You must name them as **e1, e2, e3 and e4**.
+
+*If you don't create these buckets, the dashboard templates will not work*
 
 ![](./assets/influxbucket.png)
+
+Now you should import dashboard templates to your system
+```
+https://github.com/vortex2jm/MM-INT/blob/main/util/templates/s3e%40route_sep.json
+```
+```
+https://github.com/vortex2jm/MM-INT/blob/main/util/templates/s3e2sw_sep.json
+```
+```
+https://github.com/vortex2jm/MM-INT/blob/main/util/templates/s3e2pq_sep.json
+```
+copy the links above and follow the steps below:
+
+ - Go to the **dashboards** tab
+
+![](./assets/dashtab.png)
+
+ - Click on **CREATE DASHBOARD** and **Add Template**
+
+![](./assets/lookuptemplate.png)
+
+ - Paste the link in the field and click on **LOOK UP TEMPLATE**
+
+![](./assets/installtemplate.png)
+
+ - Then, **INSTALL TEMPLATE** (*One link each time*)
+ 
+Backing to the dashboards page, the template will be there, like in the image below:
+
+![](./assets/dash.png)
+
+Select the dashboard. Then, you can setup the autorefresh to see the data updating in real time:
+
+![](./assets/autorefresh.png)
+
+Now you're ready, but the database have no data yet. In this way, you'll setup the topology.
 
 
 ## Running Topology
@@ -50,7 +88,7 @@ solutions, you can read the article with details.<br><br>
 
 If you've done everything correctly so far, the Mininet CLI should be open.
 
-*MININET CLI IMAGE*
+![](./assets/mininetcli.png)
 
 The following topology is running:
 
@@ -64,7 +102,7 @@ h1 ping h2 -c 1
 
 The expect result is:
 
-*IMAGE OF RESULT*
+![](./assets/ping.png)
 
 #
 
@@ -84,7 +122,7 @@ Now you can simulate traffic and INT probes
   ```
   sudo iperf -c 10.0.1.2 -i 1 -t 300 -u -b 10M
   ```
-  In the command above, you've create a packet sender with 10Mbps band.
+  In the command above, you've created a packet sender with 10Mbps band.
 
 In this way, you have traffic circulating in your network, but it is not visible. If you wanna see the packets getting to
 the destiny, open another terminal in *h2* and type:  
@@ -132,5 +170,13 @@ sudo tcpdump -i eth1
   on the solution you have chose (1 or 3). Read the **article** for more information.<br><br>
 
 ## Exploring data
-Getting back to the InfluxDB, open your browser again.
- - Steps to upload the template and visualize data
+
+Getting back to the InfluxDB, open your browser again and go to the dashboards page to visualize the data.
+
+This software has a lot of features to explore. You can find more on [InfluxDB](https://www.influxdata.com/).
+
+## System Overview
+
+This is the system schematic
+
+![](./assets/system.png)
